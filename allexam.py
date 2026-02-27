@@ -50,7 +50,7 @@ LISTING_URL = "https://www.shiksha.com/medicine-health-sciences/exams-st-18"
 def scrape_listing_page(driver,page_no=1):
     all_exams = []
 
-    for page_no in range(1, 5):   # 1 se 3 tak pages
+    for page_no in range(1, 3):   # 1 se 3 tak pages
         if page_no == 1:
             url = LISTING_URL
         else:
