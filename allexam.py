@@ -2191,12 +2191,13 @@ def extract_cat_MArch_data(driver, URLS):
 
 if __name__ == "__main__":
     driver = create_driver()
+    counter = 1
 
     try:
         final_data = []
 
         # 🔹 Loop through listing pages
-        for page in range(4, 8):
+        for page in range(1, 5):
             print(f"Scraping listing page {page}")
             
             exams = scrape_listing_page(driver, page)  # Make scrape_listing_page accept page param
@@ -2206,6 +2207,11 @@ if __name__ == "__main__":
 
             for exam in exams:
                 print(f"Processing: {exam['exam_short_name']}")
+                wrapped_data = {
+                    "exam_id":counter,
+                    "exam_data":exam_data
+                }
+                counter += 1
                 base_url = exam["base_url"].rstrip("/")
 
                 URLS = {
@@ -2365,7 +2371,7 @@ if __name__ == "__main__":
                     print("college page error:", e)
                     exam_data["college"] = None    
 
-                final_data.append(exam_data)
+                final_data.append(wrapped_data)
 
             page += 1  # next listing page
 
