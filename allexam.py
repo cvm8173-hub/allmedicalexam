@@ -2191,12 +2191,12 @@ def extract_cat_MArch_data(driver, URLS):
 
 if __name__ == "__main__":
     driver = create_driver()
-    counter = 1
+    counter = 31
 
     try:
         final_data = []
 
-        for page in range(1, 5):
+        for page in range(5, 9):
             print(f"Scraping listing page {page}")
 
             exams = scrape_listing_page(driver, page)
